@@ -1,0 +1,70 @@
+.movies-filter {
+  margin: 0 auto;
+  padding: 0;
+  /* margin-top: 45px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.movies-filter__text {
+  margin: 0;
+  color: #fff;
+  margin-left: 12px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.filter-checkbox {
+  margin-top: 120px;
+  margin-right: 200px;
+}
+
+.toggle {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 36px;
+  height: 20px;
+  background: #aaa;
+  display: block;
+  border-radius: 50px;
+  position: relative;
+}
+
+.toggle:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.2s;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.08);
+}
+
+.filter-checkbox:checked + .toggle {
+  background: #3ddc84;
+}
+
+.filter-checkbox:checked + .toggle:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.toggle:active:after {
+  width: 22px;
+}
+
+@media screen and (max-width: 320px) {
+  .movies-filter__text {
+    font-size: 11px;
+  }
+
+  .movies-filter {
+    gap: 1px;
+  }
+}

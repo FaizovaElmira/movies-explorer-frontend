@@ -1,0 +1,80 @@
+.burgerMenu {
+  display: none;
+  border: 0;
+  background-color: inherit;
+}
+
+@media screen and (max-width: 768px) {
+  .burgerMenu {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .burgerMenu span,
+  .burgerMenu:after,
+  .burgerMenu:before {
+    height: 3px;
+    width: 28px;
+    position: absolute;
+    background: #fff;
+    margin: 0 auto;
+    transition: 0.5s;
+  }
+  .burgerMenu span {
+    top: 17.5px;
+  }
+  .burgerMenu:after,
+  .burgerMenu:before {
+    content: "";
+  }
+  .burgerMenu:after {
+    bottom: 6px;
+  }
+  .burgerMenu:before {
+    top: 6px;
+  }
+  .burgerMenu.burgerMenu_open span {
+    width: 0;
+  }
+  .burgerMenu.burgerMenu_open:before {
+    transform: rotate(-45deg);
+    top: 17.5px;
+    transition: 0.4s;
+    width: 22px;
+  }
+  .burgerMenu.burgerMenu_open:after {
+    transform: rotate(45deg);
+    bottom: 17.5px;
+    transition: 0.4s;
+    width: 22px;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .burgerMenu span,
+  .burgerMenu:after,
+  .burgerMenu:before {
+    height: 2.5px;
+    width: 22px;
+  }
+  .burgerMenu span {
+    top: 17.75px;
+  }
+  .burgerMenu:after {
+    bottom: 8.75px;
+  }
+  .burgerMenu:before {
+    top: 8.75px;
+  }
+  .burgerMenu.burgerMenu_open:before {
+    top: 17.75px;
+  }
+  .burgerMenu.burgerMenu_open:after {
+    bottom: 17.75px;
+  }
+}
