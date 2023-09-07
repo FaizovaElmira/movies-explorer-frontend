@@ -28,8 +28,16 @@
   color: #FFFFFF;
 }
 
+@media screen and (max-width: 1279px) {
+  
+  .promo__text {
+      margin: 190px 160px;
+  }
+}
+
 
 @media screen and (max-width: 768px) {
+ 
   .promo__text {
       margin: 43% 5%;
   }
@@ -38,7 +46,29 @@
   }
 }
 
+@media screen and (max-width: 730px) {
+ 
+  .promo__text {
+      margin: 44% 2%;
+  }
+}
+
 @media screen and (max-width: 500px) {
+  .promo__logo {
+    margin-top: 150px;
+    margin-bottom: 180px;
+    width: 64%;
+}
+  
+  .promo__text {
+      margin: 58% 4%;
+      padding: 0;
+      font-size: 31px;
+      line-height: 39px;
+  }
+}
+
+@media screen and (max-width: 320px) {
   .promo__logo {
       margin-top: 145px;
       margin-bottom: 180px;
