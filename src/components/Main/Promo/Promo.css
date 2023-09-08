@@ -9,47 +9,43 @@
 
 .promo__logo {
   width: 320px;
-  margin: 82px auto 122px;
+  margin: 79px auto 123px;
   z-index: 0;
 }
 
 .promo__text {
   padding: 0 7px;
-  margin: 187px 287px;
+  margin: 185px 292px;
   position: absolute;
   z-index: 1;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
-  font-size: 50px;
-  line-height: 58px;
-  letter-spacing: -2px;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -1.3px;
   text-align: center;
   color: #FFFFFF;
 }
 
 @media screen and (max-width: 1279px) {
-  
   .promo__text {
-      margin: 190px 160px;
+    margin: 190px 160px;
   }
 }
 
-
 @media screen and (max-width: 768px) {
- 
   .promo__text {
-      margin: 43% 5%;
+    margin: 43% 5%;
   }
   .promo__logo {
-      margin: 224px auto 241px;
+    margin: 224px auto 241px;
   }
 }
 
 @media screen and (max-width: 730px) {
- 
   .promo__text {
-      margin: 44% 2%;
+    margin: 44% 2%;
   }
 }
 
@@ -58,27 +54,26 @@
     margin-top: 150px;
     margin-bottom: 180px;
     width: 64%;
-}
-  
+  }
   .promo__text {
-      margin: 58% 4%;
-      padding: 0;
-      font-size: 31px;
-      line-height: 39px;
+    margin: 58% 4%;
+    padding: 0;
+    font-size: 31px;
+    line-height: 39px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .promo__logo {
-      margin-top: 145px;
-      margin-bottom: 180px;
-      width: 77%;
+    margin-top: 145px;
+    margin-bottom: 180px;
+    width: 77%;
   }
   .promo__text {
-      margin: 65% 3%;
-      padding: 0;
-      font-size: 31px;
-      line-height: 39px;
-      letter-spacing: -1.24px;
+    margin: 65% 3%;
+    padding: 0;
+    font-size: 31px;
+    line-height: 39px;
+    letter-spacing: -1.24px;
   }
 }

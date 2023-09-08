@@ -1,9 +1,9 @@
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./Header.css";
+import Logo from "./Logo/Logo";
 import Navigation from "./Navigation/Navigation";
 import AuthNavigation from "./AuthNavigation/AuthNavigation";
-import Logo from "./Logo/Logo";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
 
 function Header(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ function Header(props) {
     setIsOpen(!isOpen);
   }
 
-  // Проверяем, является ли путь "/signup", "/signin" или это страница 404, и скрываем header при необходимости.
+  // Check if the path is "/signup", "/signin", or a 404 page, and hide the header if necessary.
   const shouldHideHeader =
     location.pathname === "/signup" ||
     location.pathname === "/signin" ||
@@ -21,7 +21,7 @@ function Header(props) {
 
   return shouldHideHeader ? null : (
     <header
-      className={`header ${location.pathname === "/" ? "header__main" : ""}`}
+      className={`header ${location.pathname === "/" ? "header-main" : ""}`}
     >
       <Logo />
       {location.pathname === "/" ? (
@@ -37,3 +37,4 @@ function Header(props) {
 }
 
 export default Header;
+

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./AuthNavigation.css";
 import userIcon from "../../../images/icon-account.svg";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import BurgerMenu from "../../BurgerMenu/BurgerMenu";
 
 function AuthNavigation(props) {
   return (

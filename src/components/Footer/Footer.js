@@ -4,12 +4,11 @@ import { useLocation } from "react-router-dom";
 function Footer() {
   const location = useLocation();
 
-  // Проверяем, является ли путь "/signup", "/signin" или это несуществующая страница, и скрываем Footer при необходимости.
+  // Проверяем, является ли путь "/signup", "/signin" скрываем Footer при необходимости.
   const shouldHideFooter =
   location.pathname === "/signup" ||
   location.pathname === "/signin" ||
-  location.pathname === "/profile" ||
-  location.pathname === "/*";
+  location.pathname === "/profile";
 
   if (shouldHideFooter) {
     return null;

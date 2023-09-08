@@ -11,7 +11,7 @@
   line-height: 16px;
 }
 
-.navigation_link_type_btn {
+.navigation_link_type-btn {
   padding: 8px 20px;
   color: #000;
   background-color: #3DDC84;
@@ -25,7 +25,7 @@
   .navigation__link {
     font-size: 10px;
   }
-  .navigation_link_type_btn {
+  .navigation_link_type-btn {
     padding: 5px 12px;
   }
 }

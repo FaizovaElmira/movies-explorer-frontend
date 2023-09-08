@@ -4,10 +4,10 @@ import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList";
 
 function SavedMovies({ savedMovies }) {
   return (
-    <div className="saved-movies">
+    <main className="saved-movies">
       <SearchForm />
       <MoviesCardList movies={savedMovies} />
-    </div>
+    </main>
   );
 }
 

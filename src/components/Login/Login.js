@@ -1,4 +1,4 @@
-import useValidation from '../../../hooks/useValidation';
+import useValidation from '../../hooks/useValidation';
 import AuthForm from '../AuthForm/AuthForm';
 import Input from '../Input/Input';
 
@@ -10,7 +10,7 @@ function Login(props) {
     props.onUpdateUser(values);
   }
   return (
-    <main>
+    <>
       <AuthForm
         title={'Рады видеть!'}
         textBtn={'Войти'}
@@ -43,7 +43,7 @@ function Login(props) {
           placeholder='Введите пароль'
         />
       </AuthForm>
-    </main>
+    </>
   );
 }
 

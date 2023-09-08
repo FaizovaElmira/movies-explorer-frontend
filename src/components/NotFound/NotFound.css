@@ -1,7 +1,7 @@
 .notFound {
   display: flex;
   flex-direction: column;
-  padding-top: 60px;
+  padding-top: 246px;
   padding-bottom: 60px;
   align-items: center;
   justify-content: center;
@@ -16,6 +16,7 @@
   align-items: center;
   height: 100%;
   justify-content: center;
+  margin-bottom: 184px;
 }
 
 .notFound__title {
@@ -52,14 +53,17 @@
   opacity: 0.7;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) {
   .notFound {
-    padding-top: 222px;
-    padding-bottom: 222px;
+    padding-top: 404px;
+    padding-bottom: 220px;
+
   }
 }
 
-@media screen and (max-width: 480px) {
+
+
+@media screen and (max-width: 767px) {
   .notFound__title {
     font-size: 80px;
     line-height: 96.82px;
@@ -80,7 +84,7 @@
   }
 
   .notFound {
-    padding-top: 42px;
+    padding-top: 225px;
     padding-bottom: 30px;
   }
 }

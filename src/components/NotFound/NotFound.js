@@ -1,8 +1,12 @@
 import "./NotFound.css";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function NotFound() {
+function NotFound({ onSetShouldHideHeaderFooter }) {
   const navigate = useNavigate();
+
+  // Call the callback function to set shouldHideHeaderFooter to true
+  onSetShouldHideHeaderFooter(true);
 
   return (
     <main className="notFound">

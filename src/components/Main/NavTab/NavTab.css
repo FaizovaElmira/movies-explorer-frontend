@@ -1,5 +1,5 @@
 .navTab {
-  background-color: var(--primary-bg-color);
+  background-color: #272727;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@
 
 .navTab__link {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: #fff;
   font-weight: 500;
   font-size: 13px;
   line-height: 1.2;
@@ -38,3 +38,4 @@
     line-height: 1.45;
   }
 }
+
