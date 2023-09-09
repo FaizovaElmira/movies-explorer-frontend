@@ -5,7 +5,7 @@
 }
 
 .search__form {
-  width: 89%; /* Изменил */
+  width: 91%;
   height: 46px;
   margin: 60px auto 41px;
   display: flex;
@@ -36,17 +36,22 @@
   border: none;
   border-radius: 40px;
   cursor: pointer;
+  
 }
 
 .search__button img {
   width: 80px;
   height: 34px;
+  transition: opacity 0.3s ease; 
 }
 
+.search__button:hover img {
+  opacity: 0.6; 
+}
 .search__line {
-  width: 100%; /* Изменил */
+  width: 100%;
   height: 1px;
-  margin: 69px auto 10px; /* Изменил */
+  margin: 69px auto 10px;
   background-color: #2f2f2f;
 }
 
@@ -60,14 +65,15 @@
   }
 
   .search__line {
-    width: 100%; /* Изменил */
+    width: 92%;
     height: 1px;
-    margin: 50px auto 10px; /* Изменил */
+    margin: 50px auto 10px;
     background-color: #424242;
   }
 }
 
 @media screen and (max-width: 320px) {
+  
   .search.movies {
     margin-top: 70px;
   }
@@ -84,9 +90,13 @@
   }
 
   .search__line {
-    max-width: 100%; /* Изменил */
+    max-width: 100%;
     height: 1px;
-    margin: 49px auto 10px; /* Изменил */
+    margin: 49px auto 10px;
     background-color: #fff;
+  }
+
+  .search__button img {
+    max-width: 100%;
   }
 }
