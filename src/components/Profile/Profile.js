@@ -1,19 +1,18 @@
 import "./Profile.css";
 import useValidation from "../../hooks/useValidation";
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 
 function Profile(props) {
   const { values, errors, handleChange } = useValidation();
   const [isEditMode, setIsEditMode] = useState(false);
-  const [isDirty, setIsDirty] = useState(false);
+  const [isNeedDisable, setIsNeedDisable] = useState(false);
+  const nameInputRef = useRef('');
 
-  useEffect(() => {
-    setIsDirty(false);
-  }, [values]); // Сброс isDirty при изменении значений полей
-
+  
   function handleSubmit(e) {
     e.preventDefault();
     setIsEditMode(false);
+    setIsNeedDisable(false);
   }
 
   function handleEditMode() {
@@ -22,13 +21,15 @@ function Profile(props) {
 
   function handleInputChange(e) {
     handleChange(e);
-    setIsDirty(true);
+    setIsNeedDisable(true);
   }
 
   return (
     <main className="profile">
       <div className="profile__container">
-        <h2 className="profile__title">{`Привет Виталий!`}</h2>
+      <h2 className="profile__title">
+        {`Привет ${nameInputRef.current ? nameInputRef.current.value : "Виталий"}!`}
+      </h2>
         <form className="profile-form" onSubmit={handleSubmit}>
           <div className="profile-form__container">
             <label htmlFor="name" className="profile-form__label">
@@ -39,13 +40,14 @@ function Profile(props) {
               type="text"
               name="name"
               className="profile-form__input"
-              required=""
+              required
               minLength={2}
               maxLength={40}
               value={values.name || "Виталий"}
               onChange={handleInputChange}
               placeholder="Введите имя"
               readOnly={!isEditMode}
+              ref={nameInputRef}
             />
           </div>
           <span className="error error_type_profile">{errors.name || ""}</span>
@@ -59,7 +61,7 @@ function Profile(props) {
               type="email"
               name="email"
               className="profile-form__input"
-              required=""
+              required
               value={values.email || "pochta@yandex.ru"}
               onChange={handleInputChange}
               placeholder="Введите e-mail"
@@ -70,10 +72,11 @@ function Profile(props) {
           {isEditMode ? (
             <button
               className={`profile__btn profile__btn_type_change ${
-                isDirty ? "active" : "disabled"
+                isNeedDisable ? "active" : "disabled"
               }`}
               type="submit"
               aria-label="Сохранить изменения"
+              disabled={!isNeedDisable}
             >
               Сохранить
             </button>

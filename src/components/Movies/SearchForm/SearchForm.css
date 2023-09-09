@@ -5,12 +5,14 @@
 }
 
 .search__form {
-  width: 1140px;
+  width: 89%; /* Изменил */
   height: 46px;
   margin: 60px auto 41px;
   display: flex;
   border-radius: 40px;
   background: #2f2f2f;
+  justify-content: center;
+  align-items: center;
 }
 
 .search__input {
@@ -42,15 +44,15 @@
 }
 
 .search__line {
-  width: 1140px;
+  width: 100%; /* Изменил */
   height: 1px;
-  margin: 69px 70px 10px;
+  margin: 69px auto 10px; /* Изменил */
   background-color: #2f2f2f;
 }
 
 @media screen and (max-width: 768px) {
   .search__form {
-    width: 708px;
+    max-width: 100%;
     margin: 80px auto 41px;
     display: flex;
     border-radius: 40px;
@@ -58,9 +60,9 @@
   }
 
   .search__line {
-    width: 708px;
+    width: 100%; /* Изменил */
     height: 1px;
-    margin: 50px 30px 10px;
+    margin: 50px auto 10px; /* Изменил */
     background-color: #424242;
   }
 }
@@ -74,7 +76,7 @@
     margin-top: 80px;
   }
   .search__form {
-    width: 292px;
+    max-width: 100%;
     margin: 14px auto 41px;
     display: flex;
     border-radius: 40px;
@@ -82,10 +84,9 @@
   }
 
   .search__line {
-    width: 292px;
+    max-width: 100%; /* Изменил */
     height: 1px;
-    margin: 49px 14px 10px;
+    margin: 49px auto 10px; /* Изменил */
     background-color: #fff;
   }
 }
-
