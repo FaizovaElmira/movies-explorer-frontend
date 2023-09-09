@@ -1,14 +1,16 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation(props) {
   return (
     <div className="navigation">
-      <Link to="/signup" className="navigation__link">
+      <Link to="/signup" className="link navigation__link">
         Регистрация
       </Link>
-      <Link to="/signin" className="navigation__link navigation__link-btn">
+      <Link
+        to="/signin"
+        className="link navigation__link navigation__link-btn"
+      >
         Войти
       </Link>
     </div>
@@ -16,4 +18,3 @@ function Navigation(props) {
 }
 
 export default Navigation;
-

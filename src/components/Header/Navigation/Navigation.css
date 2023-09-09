@@ -9,14 +9,16 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  letter-spacing: -1.2px;
 }
 
-.navigation_link_type-btn {
+.navigation__link-btn {
   padding: 8px 20px;
   color: #000;
   background-color: #3DDC84;
   border-radius: 3px;
 }
+
 @media screen and (max-width: 480px) {
   .navigation {
     gap: 14px;
@@ -25,7 +27,7 @@
   .navigation__link {
     font-size: 10px;
   }
-  .navigation_link_type-btn {
+  .navigation__link-btn {
     padding: 5px 12px;
   }
 }

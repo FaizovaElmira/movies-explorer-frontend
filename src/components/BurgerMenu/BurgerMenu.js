@@ -1,16 +1,16 @@
+import React from "react";
 import "./BurgerMenu.css";
 
 function BurgerMenu(props) {
   return (
-    <>
-      <div
-        onClick={props.handleMenuBtnClick}
-        className={`burgerMenu ${props.isOpen ? "burgerMenu_open" : ""}`}
-      >
-        <span></span>
-      </div>
-    </>
+    <button
+      onClick={props.handleMenuBtnClick}
+      className={`burgerMenu ${props.isOpen ? "burgerMenu_open" : ""}`}
+    >
+      <span></span>
+    </button>
   );
 }
 
 export default BurgerMenu;
+

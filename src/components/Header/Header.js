@@ -13,11 +13,11 @@ function Header(props) {
     setIsOpen(!isOpen);
   }
 
-  // Check if the path is "/signup", "/signin", or a 404 page, and hide the header if necessary.
+// Проверяем, является ли путь «/signup», «/signin», и при необходимости скрываем заголовок.
   const shouldHideHeader =
     location.pathname === "/signup" ||
-    location.pathname === "/signin" ||
-    location.pathname === "/*";
+    location.pathname === "/signin";
+
 
   return shouldHideHeader ? null : (
     <header
