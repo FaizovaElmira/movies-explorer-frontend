@@ -7,10 +7,7 @@ function Navigation(props) {
       <Link to="/signup" className="link navigation__link">
         Регистрация
       </Link>
-      <Link
-        to="/signin"
-        className="link navigation__link navigation__link-btn"
-      >
+      <Link to="/signin" className="link navigation__link navigation__link-btn">
         Войти
       </Link>
     </div>

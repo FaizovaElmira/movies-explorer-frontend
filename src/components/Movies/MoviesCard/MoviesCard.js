@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import './MoviesCard.css';
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+import "./MoviesCard.css";
 
 function MoviesCard({ card }) {
   const location = useLocation();
@@ -13,8 +13,8 @@ function MoviesCard({ card }) {
   };
 
   const renderActionButton = () => {
-    if (location.pathname === '/movies') {
-      const buttonType = !isCardSaved ? 'save' : 'saved';
+    if (location.pathname === "/movies") {
+      const buttonType = !isCardSaved ? "save" : "saved";
       return (
         <button
           type="button"
@@ -22,7 +22,7 @@ function MoviesCard({ card }) {
           onClick={handleOnClick}
         ></button>
       );
-    } else if (location.pathname === '/saved-movies') {
+    } else if (location.pathname === "/saved-movies") {
       return (
         <button
           type="button"

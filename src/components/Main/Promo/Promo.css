@@ -1,6 +1,6 @@
 .promo {
   margin: 0;
-  padding: 0 ;
+  padding: 0;
   width: 100%;
   background-color: #073042;
   position: relative;
@@ -18,14 +18,14 @@
   margin: 185px 292px;
   position: absolute;
   z-index: 1;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
   line-height: 56px;
   letter-spacing: -1.3px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 @media screen and (max-width: 1279px) {

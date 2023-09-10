@@ -79,7 +79,7 @@
   color: #fff;
 }
 
-.profile__btn{
+.profile__btn {
   padding: 0;
   border: 0;
   background-color: inherit;
@@ -92,7 +92,7 @@
   transition: opacity 0.3s;
 }
 
-.profile__btn_type_submit{
+.profile__btn_type_submit {
   margin: auto 0 16px;
 }
 
@@ -112,27 +112,27 @@
   font-weight: 500;
   line-height: normal;
   min-height: 13px;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
   margin: 223px 0 50px 0;
 }
 
 .hover-button {
-  transition: opacity 0.3s ease-in-out; 
+  transition: opacity 0.3s ease-in-out;
   opacity: 1;
 }
 
 .hover-button:hover {
-  opacity: 0.7; 
+  opacity: 0.7;
 }
 
 .profile__btn_type_change.disabled {
-  background-color: #F8F8F8;
-  color: #C2C2C2;
+  background-color: #f8f8f8;
+  color: #c2c2c2;
 }
 
 .profile__btn_type_change.active {
-  background-color: #3456F3;
-  color: #FFF;
+  background-color: #3456f3;
+  color: #fff;
 }
 
 .profile__btn_type_exit {

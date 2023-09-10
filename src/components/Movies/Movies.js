@@ -23,12 +23,12 @@ function Movies() {
   }, []);
 
   return (
-    <main className='movies'>
+    <main className="movies">
       <SearchForm />
       {/* Показывайть прелоадер только при загрузке данных */}
       {isLoading ? <Preloader /> : null}
       <MoviesCardList movies={movies} />
-      </main>
+    </main>
   );
 }
 

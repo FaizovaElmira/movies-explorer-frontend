@@ -6,9 +6,9 @@ function Footer() {
 
   // Проверяем, является ли путь "/signup", "/signin" скрываем Footer при необходимости.
   const shouldHideFooter =
-  location.pathname === "/signup" ||
-  location.pathname === "/signin" ||
-  location.pathname === "/profile";
+    location.pathname === "/signup" ||
+    location.pathname === "/signin" ||
+    location.pathname === "/profile";
 
   if (shouldHideFooter) {
     return null;
@@ -51,4 +51,3 @@ function Footer() {
 }
 
 export default Footer;
-

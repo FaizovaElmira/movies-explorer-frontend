@@ -57,11 +57,8 @@
   .notFound {
     padding-top: 404px;
     padding-bottom: 220px;
-
   }
 }
-
-
 
 @media screen and (max-width: 767px) {
   .notFound__title {

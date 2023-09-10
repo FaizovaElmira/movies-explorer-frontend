@@ -6,9 +6,8 @@ function Profile(props) {
   const { values, errors, handleChange } = useValidation();
   const [isEditMode, setIsEditMode] = useState(false);
   const [isNeedDisable, setIsNeedDisable] = useState(false);
-  const nameInputRef = useRef('');
+  const nameInputRef = useRef("");
 
-  
   function handleSubmit(e) {
     e.preventDefault();
     setIsEditMode(false);
@@ -27,9 +26,11 @@ function Profile(props) {
   return (
     <main className="profile">
       <div className="profile__container">
-      <h2 className="profile__title">
-        {`Привет ${nameInputRef.current ? nameInputRef.current.value : "Виталий"}!`}
-      </h2>
+        <h2 className="profile__title">
+          {`Привет ${
+            nameInputRef.current ? nameInputRef.current.value : "Виталий"
+          }!`}
+        </h2>
         <form className="profile-form" onSubmit={handleSubmit}>
           <div className="profile-form__container">
             <label htmlFor="name" className="profile-form__label">
@@ -105,4 +106,3 @@ function Profile(props) {
 }
 
 export default Profile;
-

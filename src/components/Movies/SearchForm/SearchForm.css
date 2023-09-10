@@ -36,17 +36,16 @@
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  
 }
 
 .search__button img {
   width: 80px;
   height: 34px;
-  transition: opacity 0.3s ease; 
+  transition: opacity 0.3s ease;
 }
 
 .search__button:hover img {
-  opacity: 0.6; 
+  opacity: 0.6;
 }
 .search__line {
   width: 100%;
@@ -73,7 +72,6 @@
 }
 
 @media screen and (max-width: 320px) {
-  
   .search.movies {
     margin-top: 70px;
   }
