@@ -3,14 +3,22 @@ import "./Navigation.css";
 
 function Navigation(props) {
   return (
-    <div className="navigation">
-      <Link to="/signup" className="link navigation__link">
+    <nav className="navigation">
+      <Link
+        to="/signup"
+        className="link navigation__link"
+        aria-label="Перейти к странице регистрации"
+      >
         Регистрация
       </Link>
-      <Link to="/signin" className="link navigation__link navigation__link-btn">
+      <Link
+        to="/signin"
+        className="link navigation__link navigation__link-btn"
+        aria-label="Перейти к странице войти"
+      >
         Войти
       </Link>
-    </div>
+    </nav>
   );
 }
 

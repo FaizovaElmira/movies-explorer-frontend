@@ -10,7 +10,7 @@ function Register(props) {
   }
 
   return (
-    <>
+    <section className="register" aria-label="Регистрация на сайте">
       <AuthForm
         title={"Добро пожаловать!"}
         textBtn={"Зарегистрироваться"}
@@ -56,7 +56,7 @@ function Register(props) {
           placeholder="Введите пароль"
         />
       </AuthForm>
-    </>
+    </section>
   );
 }
 

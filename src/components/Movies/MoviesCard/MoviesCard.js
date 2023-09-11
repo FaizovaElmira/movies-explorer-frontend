@@ -20,6 +20,9 @@ function MoviesCard({ card }) {
           type="button"
           className={`moviesCard__button moviesCard__button_type_${buttonType}`}
           onClick={handleOnClick}
+          aria-label={
+            isCardSaved ? "Удалить из сохраненных" : "Сохранить в избранное"
+          }
         ></button>
       );
     } else if (location.pathname === "/saved-movies") {

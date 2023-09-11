@@ -4,7 +4,7 @@ import "./AuthForm.css";
 
 function AuthForm(props) {
   return (
-    <main className="auth">
+    <section className="auth">
       <div className="auth__container">
         <header>
           <Logo />
@@ -30,7 +30,7 @@ function AuthForm(props) {
           </Link>
         </footer>
       </div>
-    </main>
+    </section>
   );
 }
 

@@ -3,16 +3,16 @@ import ArrowLink from "../../../images/arrow-link.svg";
 
 function Portfolio() {
   return (
-    <section className="portfolio">
+    <section className="portfolio" aria-label="Портфолио">
+      <h2 className="portfolio__title">Портфолио</h2>
       <div className="portfolio__container">
-        <h2 className="portfolio__title">Портфолио</h2>
-        <ul className="portfolio__list">
-          <li className="portfolio__list-item">
+        <ul className="portfolio__items">
+          <li className="portfolio__item">
             <a
-              className="portfolio__link hover-link"
-              href="https://faizovaelmira.github.io/how-to-learn/"
+              className="portfolio__link"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              href="https://faizovaelmira.github.io/how-to-learn/"
             >
               <p className="portfolio__link-text">Статичный сайт</p>
               <img
@@ -22,12 +22,12 @@ function Portfolio() {
               />
             </a>
           </li>
-          <li className="portfolio__list-item">
+          <li className="portfolio__item">
             <a
-              className="portfolio__link hover-link"
-              href="https://faizovaelmira.github.io/russian-travel/"
+              className="portfolio__link"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              href="https://faizovaelmira.github.io/russian-travel/"
             >
               <p className="portfolio__link-text">Адаптивный сайт</p>
               <img
@@ -37,12 +37,12 @@ function Portfolio() {
               />
             </a>
           </li>
-          <li className="portfolio__list-item">
+          <li className="portfolio__item">
             <a
-              className="portfolio__link hover-link"
-              href="https://faizovaelmira.github.io/react-mesto-auth"
+              className="portfolio__link"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              href="https://faizovaelmira.github.io/react-mesto-auth"
             >
               <p className="portfolio__link-text">Одностраничное приложение</p>
               <img

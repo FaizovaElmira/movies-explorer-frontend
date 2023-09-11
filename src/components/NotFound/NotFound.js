@@ -8,15 +8,13 @@ function NotFound({ onSetShouldHideHeaderFooter }) {
   onSetShouldHideHeaderFooter(true);
 
   return (
-    <main className="notFound">
-      <div className="notFound__container">
-        <h2 className="notFound__title">404</h2>
-        <p className="notFound__subtitle">Страница не найдена</p>
-      </div>
+    <section className="notFound" aria-label="Страница не найдена">
+      <h1 className="notFound__title">404</h1>
+      <p className="notFound__subtitle">Страница не найдена</p>
       <button className="notFound__btn" onClick={() => navigate(-1)}>
         Назад
       </button>
-    </main>
+    </section>
   );
 }
 

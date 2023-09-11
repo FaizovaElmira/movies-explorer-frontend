@@ -4,10 +4,10 @@ import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList";
 
 function SavedMovies({ savedMovies }) {
   return (
-    <main className="saved-movies">
+    <section className="saved-movies" aria-label="Сохраненные фильмы">
       <SearchForm />
       <MoviesCardList movies={savedMovies} />
-    </main>
+    </section>
   );
 }
 

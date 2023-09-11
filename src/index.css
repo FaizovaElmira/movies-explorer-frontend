@@ -25,18 +25,16 @@ ol {
 }
 
 a {
-  color: #fff; /* Белый цвет текста ссылок */
-  text-decoration: none; /* Убрать подчеркивание */
-  transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
-/* Изменить стиль при наведении */
 a:hover {
   color: #ccc;
-}
-
-a {
-  cursor: pointer;
+  opacity: 0.6;
 }
 
 .error {
@@ -64,16 +62,10 @@ a {
   animation: heartbeat 2s ease-in-out infinite;
 }
 
-/* Глобальные стили для ссылок */
-a {
-  opacity: 0.6; /* Устанавливаем начальную прозрачность */
-  transition: opacity 0.3s ease; /* Добавляем плавный переход */
-  /* Дополнительные стили для ссылок, если нужны */
+button {
+  transition: opacity 0.3s ease;
 }
 
-/* Глобальные стили для кнопок */
-button {
-  opacity: 0.6; /* Устанавливаем начальную прозрачность */
-  transition: opacity 0.3s ease; /* Добавляем плавный переход */
-  /* Дополнительные стили для кнопок, если нужны */
+button:hover {
+  opacity: 0.6;
 }

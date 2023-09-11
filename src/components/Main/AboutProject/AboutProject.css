@@ -1,20 +1,5 @@
 .aboutProject {
-  background-color: #202020;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.aboutProject__container {
-  max-width: 1280px;
-  width: 100%;
-  padding: 110px 70px;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-  align-items: flex-start;
-  flex-direction: column;
+  padding: 111px 70px;
 }
 
 .aboutProject__title {
@@ -24,7 +9,7 @@
   line-height: 1.23;
   letter-spacing: -0.04em;
   border-bottom: 1px solid #dadada;
-  padding-bottom: 23px;
+  padding-bottom: 26px;
   width: 100%;
 }
 
@@ -108,9 +93,8 @@
   color: #8b8b8b;
 }
 
-/* Медиа-запросы */
 @media screen and (max-width: 800px) {
-  .aboutProject__container {
+  .aboutProject {
     padding: 90px 50px;
   }
 
@@ -139,8 +123,8 @@
 }
 
 @media screen and (max-width: 400px) {
-  .aboutProject__container {
-    padding: 71px 18px;
+  .aboutProject {
+    padding: 71px 18px 97px;
   }
 
   .aboutProject__title {

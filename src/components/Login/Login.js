@@ -10,7 +10,7 @@ function Login(props) {
     props.onUpdateUser(values);
   }
   return (
-    <>
+    <section className="login" aria-label="Вход на сайт">
       <AuthForm
         title={"Рады видеть!"}
         textBtn={"Войти"}
@@ -43,7 +43,7 @@ function Login(props) {
           placeholder="Введите пароль"
         />
       </AuthForm>
-    </>
+    </section>
   );
 }
 

@@ -23,7 +23,6 @@ function MoviesCardList({ movies }) {
   }, [handleResizeWidth]);
 
   useEffect(() => {
-    // Установите начальное значение отображаемых фильмов в зависимости от ширины экрана
     if (screenWidth >= 1280) {
       setVisibleMoviesCount(location.pathname === "/saved-movies" ? 3 : 12);
     } else if (screenWidth >= 768) {
@@ -40,8 +39,7 @@ function MoviesCardList({ movies }) {
   };
 
   const handleShowMoreClick = () => {
-    // Увеличиваем количество отображаемых фильмов при нажатии на кнопку "Ещё"
-    setVisibleMoviesCount((prevCount) => prevCount + 3); // Например, можно увеличивать на 3 фильма
+    setVisibleMoviesCount((prevCount) => prevCount + 3);
   };
 
   const shouldRenderShowMoreButton =

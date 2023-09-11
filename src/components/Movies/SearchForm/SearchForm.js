@@ -7,7 +7,6 @@ import "./SearchForm.css";
 function SearchForm(props) {
   const location = useLocation();
 
-  // Определите классы в зависимости от маршрута
   const searchClasses = `search ${
     location.pathname === "/saved-movies" ? "saved-movies" : "movies"
   }`;
@@ -16,7 +15,11 @@ function SearchForm(props) {
     <section className={searchClasses}>
       <form className="search__form">
         <input type="text" className="search__input" placeholder="Фильм" />
-        <button type="submit" className="search__button">
+        <button
+          type="submit"
+          className="search__button"
+          aria-label="Кнопка поиска фильма"
+        >
           <img src={iconfind} alt="Поиск" />
         </button>
       </form>

@@ -10,25 +10,20 @@ function Movies() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // Включить прелоадер перед загрузкой фильмов
     setIsLoading(true);
 
     setTimeout(() => {
       setMovies(moviesData);
-      // Выключить прелоадер после загрузки фильмов
       setIsLoading(false);
-    }, 1000); // Заменить на реальный запрос к серверу
-
-    // В данном примере, имитируем загрузку данных с задержкой в 1 секунду
+    }, 1000);
   }, []);
 
   return (
-    <main className="movies">
+    <section className="movies" aria-label="Фильмы">
       <SearchForm />
-      {/* Показывайть прелоадер только при загрузке данных */}
       {isLoading ? <Preloader /> : null}
       <MoviesCardList movies={movies} />
-    </main>
+    </section>
   );
 }
 

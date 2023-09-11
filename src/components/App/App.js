@@ -24,7 +24,6 @@ function App() {
   return (
     <div className="page">
       <Router>
-        {/* Условный рендеринг Header */}
         {!shouldHideHeaderFooter && <Header />}
         <Routes>
           <Route path="/" element={<Main />} />
@@ -40,13 +39,11 @@ function App() {
             path="*"
             element={
               <NotFound
-                // Устанавливаем shouldHideHeaderFooter в true на странице NotFound
                 onSetShouldHideHeaderFooter={setShouldHideHeaderFooter}
               />
             }
           />
         </Routes>
-        {/* Условный рендеринг Footer */}
         {!shouldHideHeaderFooter && <Footer />}
       </Router>
     </div>

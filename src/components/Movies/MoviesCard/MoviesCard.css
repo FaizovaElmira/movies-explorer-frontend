@@ -22,7 +22,7 @@
 }
 
 .moviesCard__poster:hover {
-  transform: scale(1.1); /* Увеличение размера при наведении на карточку */
+  opacity: 0.6;
 }
 
 .moviesCard__description {
@@ -39,7 +39,6 @@
   line-height: 1.23;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
   max-width: 265px;
 }
 

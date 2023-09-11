@@ -25,7 +25,8 @@
   }
 
   .navigation__link {
-    font-size: 12px;
+    font-size: 10px;
+    line-height: 16px;
   }
   .navigation__link-btn {
     padding: 5px 12px;

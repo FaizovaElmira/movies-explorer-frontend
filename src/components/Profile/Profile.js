@@ -24,13 +24,16 @@ function Profile(props) {
   }
 
   return (
-    <main className="profile">
+    <section
+      className="profile"
+      aria-label="Редактирование профиля пользователя"
+    >
       <div className="profile__container">
-        <h2 className="profile__title">
+        <h1 className="profile__title">
           {`Привет ${
             nameInputRef.current ? nameInputRef.current.value : "Виталий"
           }!`}
-        </h2>
+        </h1>
         <form className="profile-form" onSubmit={handleSubmit}>
           <div className="profile-form__container">
             <label htmlFor="name" className="profile-form__label">
@@ -76,7 +79,7 @@ function Profile(props) {
                 isNeedDisable ? "active" : "disabled"
               }`}
               type="submit"
-              aria-label="Сохранить изменения"
+              aria-label="Кнопка Сохранить"
               disabled={!isNeedDisable}
             >
               Сохранить
@@ -85,6 +88,7 @@ function Profile(props) {
             <>
               <button
                 className="profile__btn profile__btn_type_submit hover-button"
+                aria-label="Кнопка редактирования"
                 type="button"
                 onClick={handleEditMode}
               >
@@ -101,7 +105,7 @@ function Profile(props) {
           )}
         </form>
       </div>
-    </main>
+    </section>
   );
 }
 
