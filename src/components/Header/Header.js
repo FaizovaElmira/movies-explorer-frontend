@@ -13,7 +13,6 @@ function Header(props) {
     setIsOpen(!isOpen);
   }
 
-  // Проверяем, является ли путь «/signup», «/signin», и при необходимости скрываем заголовок.
   const shouldHideHeader =
     location.pathname === "/signup" || location.pathname === "/signin";
 

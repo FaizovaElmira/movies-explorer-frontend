@@ -19,29 +19,29 @@ function AuthNavigation(props) {
           >
             {props.isOpen && (
               <li className="authNavigation__item">
-                <NavLink className="link authNavigation__link" to="/">
+                <NavLink className="link authNavigation__link" to="/" aria-label="Перейти на главную страницу">
                   Главная
                 </NavLink>
               </li>
             )}
             <li className="authNavigation__item">
-              <NavLink className="link authNavigation__link" to="/movies">
+              <NavLink className="link authNavigation__link" to="/movies" aria-label="Перейти на страницу с фильмами">
                 Фильмы
               </NavLink>
             </li>
             <li className="authNavigation__item">
-              <NavLink className="link authNavigation__link" to="/saved-movies">
+              <NavLink className="link authNavigation__link" to="/saved-movies" aria-label="Перейти на страницу с сохраненными фильмами">
                 Сохраненные фильмы
               </NavLink>
             </li>
             <li className="authNavigation__item authNavigation__item_type_profile">
-              <NavLink className="link" to="/profile">
+              <NavLink className="link" to="/profile" aria-label="Перейти в профиль">
                 Аккаунт
               </NavLink>
               <img
                 src={userIcon}
                 alt="Перейти в профиль"
-                className="user-icon"
+                className="user-icon" aria-label="Иконка профиля"
               />
             </li>
           </ul>
