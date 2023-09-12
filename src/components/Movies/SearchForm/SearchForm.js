@@ -14,14 +14,16 @@ function SearchForm(props) {
   return (
     <section className={searchClasses}>
       <form className="search__form">
-        <input type="text" className="search__input" placeholder="Фильм" />
-        <button
-          type="submit"
-          className="search__button"
-          aria-label="Кнопка поиска фильма"
-        >
-          <img src={iconfind} alt="Поиск" />
-        </button>
+        <div className="search__form-container">
+          <input type="text" className="search__input" placeholder="Фильм" />
+          <button
+            type="submit"
+            className="search__button"
+            aria-label="Кнопка поиска фильма"
+          >
+            <img src={iconfind} alt="Поиск" />
+          </button>
+        </div>
       </form>
       <FilterCheckbox />
       <div className="search__line"></div>

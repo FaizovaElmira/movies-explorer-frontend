@@ -31,7 +31,7 @@ function Profile(props) {
       <div className="profile__container">
         <h1 className="profile__title">
           {`Привет ${
-            nameInputRef.current ? nameInputRef.current.value : "Виталий"
+            nameInputRef.current ? nameInputRef.current.value : ""
           }!`}
         </h1>
         <form className="profile-form" onSubmit={handleSubmit}>
@@ -47,7 +47,7 @@ function Profile(props) {
               required
               minLength={2}
               maxLength={40}
-              value={values.name || "Виталий"}
+              value={values.name}
               onChange={handleInputChange}
               placeholder="Введите имя"
               readOnly={!isEditMode}
@@ -66,7 +66,7 @@ function Profile(props) {
               name="email"
               className="profile-form__input"
               required
-              value={values.email || "pochta@yandex.ru"}
+              value={values.email}
               onChange={handleInputChange}
               placeholder="Введите e-mail"
               readOnly={!isEditMode}
@@ -110,3 +110,4 @@ function Profile(props) {
 }
 
 export default Profile;
+

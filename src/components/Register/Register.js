@@ -27,7 +27,7 @@ function Register(props) {
           required=""
           minLength={2}
           maxLength={40}
-          value={values.name || "Виталий"}
+          value={values.name || ""}
           onChange={handleChange}
           errors={errors.name || ""}
           placeholder="Введите имя"
@@ -38,7 +38,7 @@ function Register(props) {
           name="email"
           type="email"
           required=""
-          value={values.email || "pochta@yandex.ru"}
+          value={values.email || ""}
           onChange={handleChange}
           errors={errors.email || ""}
           placeholder="Введите e-mail"
@@ -50,7 +50,7 @@ function Register(props) {
           type="password"
           required=""
           minLength={8}
-          value={values.password || "••••••••••••••"}
+          value={values.password || ""}
           onChange={handleChange}
           errors={errors.password || "Что-то пошло не так..."}
           placeholder="Введите пароль"
