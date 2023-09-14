@@ -25,7 +25,7 @@ function Login(props) {
           name="email"
           type="email"
           required=""
-          value={values.email || "pochta@yandex.ru"}
+          value={values.email || ""}
           onChange={handleChange}
           errors={errors.email || ""}
           placeholder="Введите e-mail"

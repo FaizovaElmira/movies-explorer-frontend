@@ -62,7 +62,7 @@ export class Api {
 
 const api = new Api({
   // url: "api.faizova.diploma.nomoreparties.co",
-  url: "http://localhost:4000/",
+  url: "http://localhost:3000/",
 });
 
 export default api;
