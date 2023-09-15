@@ -14,8 +14,7 @@ function Login(props) {
 
   useEffect(() => {
     props.setAuthError('');
-  }, [props]);
-
+  }, []);
   return (
     <section className='login' aria-label='Вход на сайт'>
       <AuthForm

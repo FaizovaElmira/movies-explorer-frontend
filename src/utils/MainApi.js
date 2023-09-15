@@ -15,7 +15,7 @@ export class Api {
     return fetch(`${this._url}movies`, {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     }).then((res) => {
       return this.checkError(res);
@@ -27,7 +27,7 @@ export class Api {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         country: movie.country,
@@ -52,7 +52,7 @@ export class Api {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     }).then((res) => {
       return this.checkError(res);

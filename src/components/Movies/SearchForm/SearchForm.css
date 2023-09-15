@@ -51,6 +51,7 @@
 }
 
 .search__line {
+  text-align: center;
   width: 89%;
   height: 1px;
   margin: 69px 70px 10px;
