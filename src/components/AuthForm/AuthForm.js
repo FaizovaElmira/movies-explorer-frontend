@@ -13,9 +13,7 @@ function AuthForm(props) {
         <form className="form" onSubmit={props.onSubmit}>
           {props.children}
           <button
-            className={`form__submit-btn ${
-              !props.isValid && "form__submit-btn_disabled"
-            }`}
+            className='form__submit-btn'
             type="submit"
             aria-label={props.textBtn}
             disabled={!props.isValid}

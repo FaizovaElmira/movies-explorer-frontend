@@ -1,28 +1,14 @@
-import React, { useState, useEffect } from "react";
-import "./Movies.css";
-import SearchForm from "./SearchForm/SearchForm";
-import Preloader from "./Preloader/Preloader";
-import MoviesCardList from "./MoviesCardList/MoviesCardList";
-import moviesData from "../../utils/movies";
+import './Movies.css';
+import SearchForm from './SearchForm/SearchForm';
+import Preloader from './Preloader/Preloader';
+import MoviesCardList from './MoviesCardList/MoviesCardList';
 
-function Movies() {
-  const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    setTimeout(() => {
-      setMovies(moviesData);
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-
+function Movies(props) {
   return (
-    <section className="movies" aria-label="Фильмы">
+    <section className='movies' aria-label='Фильмы'>
       <SearchForm />
-      {isLoading ? <Preloader /> : null}
-      <MoviesCardList movies={movies} />
+      {props.isLoading ? <Preloader /> : null}
+      <MoviesCardList />
     </section>
   );
 }
