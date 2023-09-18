@@ -1,8 +1,6 @@
 import './FilterCheckbox.css';
 
 function FilterCheckbox(props) {
-  console.log(props.checkboxValue);
-
   return (
     <div className='movies-filter'>
       <input

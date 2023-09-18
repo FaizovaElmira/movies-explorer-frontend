@@ -1,5 +1,5 @@
 // export const BASE_URL = api.faizova.diploma.nomoreparties.co;
-export const BASE_URL = "http://localhost:3000/";
+export const BASE_URL = 'http://localhost:3000/';
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
@@ -7,10 +7,10 @@ const checkResponse = (res) => {
 
 export const register = (name, email, password) => {
   return fetch(`${BASE_URL}signup`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       name: name,
@@ -22,10 +22,10 @@ export const register = (name, email, password) => {
 
 export const authorize = (email, password) => {
   return fetch(`${BASE_URL}signin`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       password: password,
@@ -36,21 +36,21 @@ export const authorize = (email, password) => {
 
 export const checkToken = (token) => {
   return fetch(`${BASE_URL}users/me`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
 };
 
-export const updateUserInfo = (name, email) => {
+export const updateUserInfo = ({ name, email }) => {
   return fetch(`${BASE_URL}users/me`, {
-    method: "PATCH",
+    method: 'PATCH',
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
     body: JSON.stringify({
       name: name,
@@ -62,8 +62,8 @@ export const updateUserInfo = (name, email) => {
 export const getUserInfo = () => {
   return fetch(`${BASE_URL}users/me`, {
     headers: {
-      "Content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
   }).then(checkResponse);
 };

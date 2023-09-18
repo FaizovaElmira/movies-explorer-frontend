@@ -1,40 +1,16 @@
-import React, { useState } from 'react';
+import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './MoviesCard.css';
 import { BASE_URL } from '../../../constants';
+import { AppContext } from '../../../contexts/AppContext';
 
 function MoviesCard({ card }) {
+  const { savedMovies, toggleSaveCard } = useContext(AppContext);
   const location = useLocation();
-  const [isCardSaved, setIsCardSaved] = useState(card.saved);
 
-  const handleOnClick = () => {
-    if (card && card.saved !== undefined) {
-      setIsCardSaved(!isCardSaved);
-    }
-  };
+  const savedCard = savedMovies?.find((m) => m.movieId === card.id || card._id);
 
-  const renderActionButton = () => {
-    if (location.pathname === '/movies') {
-      const buttonType = !isCardSaved ? 'save' : 'saved';
-      return (
-        <button
-          type='button'
-          className={`moviesCard__button moviesCard__button_type_${buttonType}`}
-          onClick={handleOnClick}
-          aria-label={
-            isCardSaved ? 'Удалить из сохраненных' : 'Сохранить в избранное'
-          }
-        ></button>
-      );
-    } else if (location.pathname === '/saved-movies') {
-      return (
-        <button
-          type='button'
-          className='moviesCard__button moviesCard__button_type_unsave'
-        ></button>
-      );
-    }
-  };
+  const buttonType = savedCard ? 'saved' : 'save';
 
   const changeDurationFormat = (duration) => {
     const min = duration % 60;
@@ -54,7 +30,22 @@ function MoviesCard({ card }) {
         </Link>
         <div className='moviesCard__description'>
           <h2 className='moviesCard__title'>{card.nameRU}</h2>
-          {renderActionButton()}
+          {location.pathname === '/movies' ? (
+            <button
+              type='button'
+              className={`moviesCard__button moviesCard__button_type_${buttonType}`}
+              onClick={() => toggleSaveCard(card, savedCard)}
+              aria-label={
+                savedCard ? 'Удалить из сохраненных' : 'Сохранить в избранное'
+              }
+            ></button>
+          ) : (
+            <button
+              type='button'
+              className='moviesCard__button moviesCard__button_type_unsave'
+              onClick={() => toggleSaveCard(card, savedCard)}
+            ></button>
+          )}
         </div>
         <span className='moviesCard__duration'>
           {changeDurationFormat(card.duration)}

@@ -23,7 +23,6 @@ function Movies(props) {
       setIsSearchTextEmpty(false);
       localStorage.setItem('searchMovieText', props.searchMovieText);
       props.setErrorSearchMessage('');
-      props.setIsLoading(false);
     }
   };
 
@@ -55,6 +54,7 @@ function Movies(props) {
         );
       }
       setIsQuery(false);
+      props.setIsLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.isFilterCheckboxOn, props.moviesFromSearch, isQuery]);

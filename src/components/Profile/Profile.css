@@ -18,7 +18,7 @@
 
 .profile__title {
   margin: 0 0 123px;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-weight: 500;
   font-size: 24px;
   line-height: 29.05px;
@@ -51,7 +51,7 @@
   border: none;
   background-color: inherit;
   text-align: end;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-weight: 400;
   font-size: 11px;
   line-height: 13.31px;
@@ -64,7 +64,7 @@
 }
 
 .profile-form__input::placeholder {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-weight: 400;
   font-size: 11px;
   line-height: 13.31px;
@@ -72,7 +72,7 @@
 }
 
 .profile-form__label {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-weight: 500;
   font-size: 11px;
   line-height: 13.31px;
@@ -83,7 +83,7 @@
   padding: 0;
   border: 0;
   background-color: inherit;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-weight: 400;
   font-size: 13px;
   line-height: 15.73px;
@@ -141,6 +141,15 @@
 
 .error_type_profile {
   margin-top: 4px;
+}
+
+.profile__error-message {
+  text-align: center;
+}
+
+.profile__success-message {
+  text-align: center;
+  color: green;
 }
 
 @media screen and (max-width: 768px) {

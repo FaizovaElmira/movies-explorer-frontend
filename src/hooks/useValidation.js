@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function useValidation() {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(false)
+  const [isValid, setIsValid] = useState(false);
   // console.log(errors);
 
   function handleChange(e) {
@@ -17,29 +17,25 @@ function useValidation() {
         emailError = 'Email адрес не валидный';
       }
     }
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: e.target.validationMessage || emailError }));
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: e.target.validationMessage || emailError,
+    }));
 
     const isEmailError = name === 'email' && emailError;
 
-    const checkValidity = e.target.closest("form").checkValidity()
+    const checkValidity = e.target.closest('form').checkValidity();
 
-    if (e.target.validationMessage || !checkValidity || isEmailError ) {
-      setIsValid(false)
+    if (e.target.validationMessage || !checkValidity || isEmailError) {
+      setIsValid(false);
     } else {
-      setIsValid(true)
+      setIsValid(true);
     }
 
     // (() =>  && !isEmailError && );
   }
-  
 
-  function defaultValues(values = {}, errors = {}, isValid = false) {
-    setValues(values);
-    setErrors(errors);
-    setIsValid(isValid)
-  }
-
-  return { values, errors, handleChange, defaultValues, isValid };
+  return { values, errors, handleChange, isValid, setValues };
 }
 
 export default useValidation;

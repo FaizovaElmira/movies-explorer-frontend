@@ -24,11 +24,17 @@ function MoviesCardList({ movies }) {
 
   useEffect(() => {
     if (screenWidth >= 1280) {
-      setVisibleMoviesCount(location.pathname === '/saved-movies' ? 3 : 12);
+      setVisibleMoviesCount(
+        location.pathname === '/saved-movies' ? movies.length : 12
+      );
     } else if (screenWidth >= 768) {
-      setVisibleMoviesCount(location.pathname === '/saved-movies' ? 3 : 8);
+      setVisibleMoviesCount(
+        location.pathname === '/saved-movies' ? movies.length : 8
+      );
     } else {
-      setVisibleMoviesCount(location.pathname === '/saved-movies' ? 2 : 5);
+      setVisibleMoviesCount(
+        location.pathname === '/saved-movies' ? movies.length : 5
+      );
     }
   }, [location.pathname, screenWidth]);
 

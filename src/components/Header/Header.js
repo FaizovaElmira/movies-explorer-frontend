@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
-import "./Header.css";
-import Logo from "./Logo/Logo";
-import Navigation from "./Navigation/Navigation";
-import AuthNavigation from "./AuthNavigation/AuthNavigation";
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import './Header.css';
+import Logo from './Logo/Logo';
+import Navigation from './Navigation/Navigation';
+import AuthNavigation from './AuthNavigation/AuthNavigation';
 
 function Header(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,14 +14,14 @@ function Header(props) {
   }
 
   const shouldHideHeader =
-    location.pathname === "/signup" || location.pathname === "/signin";
+    location.pathname === '/signup' || location.pathname === '/signin';
 
   return shouldHideHeader ? null : (
     <header
-      className={`header ${location.pathname === "/" ? "header-main" : ""}`}
+      className={`header ${location.pathname === '/' ? 'header-main' : ''}`}
     >
       <Logo />
-      {location.pathname === "/" ? (
+      {!props.loggedIn ? (
         <Navigation />
       ) : (
         <AuthNavigation

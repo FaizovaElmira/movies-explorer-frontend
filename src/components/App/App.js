@@ -14,6 +14,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as auth from '../../utils/auth';
 import api from '../../utils/MainApi';
 import moviesApi from '../../utils/MoviesApi';
+import { AppContext } from '../../contexts/AppContext';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -38,8 +39,6 @@ function App() {
   const [searchMovieText, setSearchMovieText] = useState(
     localStorage.getItem('searchMovieText') || ''
   );
-  // текст поиска на странице save-movies
-  const [searchSaveMovieText, setSearchSaveMovieText] = useState('');
   // чекбокс короткометражек на странице movies
   const [isFilterCheckboxOn, setIsFilterCheckboxOn] = useState(
     JSON.parse(localStorage.getItem('isFilterCheckboxOn')) || false
@@ -48,6 +47,29 @@ function App() {
   const [errorSearchMessage, setErrorSearchMessage] = useState('');
 
   const navigate = useNavigate();
+
+  // переключение лайка фильма
+  const toggleSaveCard = (card, savedCard) => {
+    if (!savedCard) {
+      api
+        .addMovie(card)
+        .then((newSavedCard) => {
+          const updatedSavedMovies = [newSavedCard, ...savedMovies];
+          setSavedMovies(updatedSavedMovies);
+        })
+        .catch((error) => console.log(`addMovie: ${error}`));
+    } else {
+      api
+        .deleteMovie(savedCard._id)
+        .then(() => {
+          const updatedSavedMovies = savedMovies.filter(
+            (movie) => movie._id !== savedCard._id
+          );
+          setSavedMovies(updatedSavedMovies);
+        })
+        .catch((error) => console.log(`deleteMovie: ${error}`));
+    }
+  };
 
   // Авторизация
   const handleLogin = async (email, password) => {
@@ -121,100 +143,117 @@ function App() {
   }, [loggedIn]);
 
   useEffect(() => {
-    if (loggedIn) {
-      api
-        .getSavedMovies()
-        .then((res) => {
-          setSavedMovies(res);
-        })
-        .catch((error) => console.log(`getSavedMovies: ${error}`));
-    }
-  }, [loggedIn]);
-
-  useEffect(() => {
     checkToken();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFirstCheckToken]);
 
+  // запрос к Api на сохраненные фильмы
+  useEffect(() => {
+    if (loggedIn) {
+      api
+        .getSavedMovies()
+        .then((data) => {
+          setSavedMovies(data);
+        })
+        .catch((error) => {
+          console.log(`getSavedMovies: ${error}`);
+        });
+    }
+  }, [loggedIn]);
+
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <div className='page'>
-        {!shouldHideHeaderFooter && <Header />}
-        <Routes>
-          <Route path='/' element={<Main />} />
-          <Route
-            path='/movies'
-            element={
-              <ProtectedRoute loggedIn={loggedIn}>
-                <Movies
-                  moviesFromSearch={moviesFromSearch}
-                  setMoviesFromSearch={setMoviesFromSearch}
-                  isLoading={isLoading}
-                  searchMovieText={searchMovieText}
-                  moviesFromApi={moviesFromApi}
-                  isFilterCheckboxOn={isFilterCheckboxOn}
-                  setSearchMovieText={setSearchMovieText}
-                  setIsLoading={setIsLoading}
-                  errorSearchMessage={errorSearchMessage}
-                  setErrorSearchMessage={setErrorSearchMessage}
-                  setIsFilterCheckboxOn={setIsFilterCheckboxOn}
-                />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/saved-movies'
-            element={
-              <ProtectedRoute loggedIn={loggedIn}>
-                <SavedMovies savedMovies={savedMovies} />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path='/profile'
-            element={
-              <ProtectedRoute loggedIn={loggedIn}>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
-          {!loggedIn && (
+    <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
+      <AppContext.Provider value={{ savedMovies, toggleSaveCard }}>
+        <div className='page'>
+          {!shouldHideHeaderFooter && <Header loggedIn={loggedIn} />}
+          <Routes>
+            <Route path='/' element={<Main />} />
             <Route
-              path='/signup'
+              path='/movies'
               element={
-                <Register
-                  handleRegister={handleRegister}
-                  authError={authError}
-                  setAuthError={setAuthError}
-                />
+                <ProtectedRoute loggedIn={loggedIn}>
+                  <Movies
+                    moviesFromSearch={moviesFromSearch}
+                    setMoviesFromSearch={setMoviesFromSearch}
+                    isLoading={isLoading}
+                    searchMovieText={searchMovieText}
+                    moviesFromApi={moviesFromApi}
+                    isFilterCheckboxOn={isFilterCheckboxOn}
+                    setSearchMovieText={setSearchMovieText}
+                    setIsLoading={setIsLoading}
+                    errorSearchMessage={errorSearchMessage}
+                    setErrorSearchMessage={setErrorSearchMessage}
+                    setIsFilterCheckboxOn={setIsFilterCheckboxOn}
+                  />
+                </ProtectedRoute>
               }
             />
-          )}
-          {!loggedIn && (
             <Route
-              path='/signin'
+              path='/saved-movies'
               element={
-                <Login
-                  handleLogin={handleLogin}
-                  authError={authError}
-                  setAuthError={setAuthError}
-                />
+                <ProtectedRoute loggedIn={loggedIn}>
+                  <SavedMovies
+                    isLoading={isLoading}
+                    setIsLoading={setIsLoading}
+                    savedMovies={savedMovies}
+                    setSavedMovies={setSavedMovies}
+                  />
+                </ProtectedRoute>
               }
             />
-          )}
-          <Route
-            path='*'
-            element={
-              <NotFound
-                onSetShouldHideHeaderFooter={setShouldHideHeaderFooter}
+            <Route
+              path='/profile'
+              element={
+                <ProtectedRoute loggedIn={loggedIn}>
+                  <Profile
+                    setLoggedIn={setLoggedIn}
+                    setSearchMovieText={setSearchMovieText}
+                    setMoviesFromApi={setMoviesFromApi}
+                    setSavedMovies={setSavedMovies}
+                    setMoviesFromSearch={setMoviesFromSearch}
+                  />
+                </ProtectedRoute>
+              }
+            />
+            {!loggedIn && (
+              <Route
+                path='/signup'
+                element={
+                  <Register
+                    handleRegister={handleRegister}
+                    authError={authError}
+                    setAuthError={setAuthError}
+                  />
+                }
               />
-            }
-          />
-        </Routes>
-        {!shouldHideHeaderFooter && <Footer />}
-      </div>
+            )}
+            {!loggedIn && (
+              <Route
+                path='/signin'
+                element={
+                  <Login
+                    handleLogin={handleLogin}
+                    authError={authError}
+                    setAuthError={setAuthError}
+                  />
+                }
+              />
+            )}
+            <Route
+              path='*'
+              element={
+                <NotFound
+                  onSetShouldHideHeaderFooter={setShouldHideHeaderFooter}
+                />
+              }
+            />
+          </Routes>
+          {!shouldHideHeaderFooter && <Footer />}
+        </div>
+      </AppContext.Provider>
     </CurrentUserContext.Provider>
   );
 }
 
 export default App;
+
