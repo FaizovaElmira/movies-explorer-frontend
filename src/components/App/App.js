@@ -31,7 +31,9 @@ function App() {
     JSON.parse(localStorage.getItem('moviesFromSearch')) || []
   );
   // сохраненные фильмы из базы данных
-  const [savedMovies, setSavedMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState(
+    JSON.parse(localStorage.getItem('savedMovies')) || []
+  );
   const [shouldHideHeaderFooter, setShouldHideHeaderFooter] = useState(false);
   // ошибка при авторизации
   const [authError, setAuthError] = useState('');
@@ -154,6 +156,7 @@ function App() {
         .getSavedMovies()
         .then((data) => {
           setSavedMovies(data);
+          localStorage.setItem('savedMovies', JSON.stringify(data));
         })
         .catch((error) => {
           console.log(`getSavedMovies: ${error}`);
@@ -256,4 +259,3 @@ function App() {
 }
 
 export default App;
-

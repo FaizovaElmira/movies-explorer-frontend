@@ -3,9 +3,8 @@ import SearchForm from '../Movies/SearchForm/SearchForm';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
 import Preloader from '../Movies/Preloader/Preloader';
 
-function SavedMovies(props) {
-  const [filteredSaveMovies, setFilteredSaveMovies] = useState([]);
-
+function SavedMovies({ savedMovies, setIsLoading, isLoading }) {
+  const [filteredSaveMovies, setFilteredSaveMovies] = useState(savedMovies);
   const [isSavedQuery, setIsSavedQuery] = useState(false);
   const [searchSavedMovieText, setSearchSavedMovieText] = useState('');
   const [errorSaveSearchMessage, setErrorSaveSearchMessage] = useState('');
@@ -18,7 +17,7 @@ function SavedMovies(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    props.setIsLoading(true);
+    setIsLoading(true);
     setIsSavedQuery(true);
   };
 
@@ -28,10 +27,14 @@ function SavedMovies(props) {
   };
 
   useEffect(() => {
+    setFilteredSaveMovies(savedMovies);
+  }, [savedMovies]);
+
+  useEffect(() => {
     if (isSavedQuery) {
       const queryText = searchSavedMovieText.trim().toLowerCase();
       setErrorSaveSearchMessage('');
-      let filteredMovies = props.savedMovies.filter(
+      let filteredMovies = savedMovies.filter(
         (m) =>
           m.nameRU.toLowerCase().includes(queryText) ||
           m.nameEN.toLowerCase().includes(queryText)
@@ -45,8 +48,9 @@ function SavedMovies(props) {
       setFilteredSaveMovies(filteredMovies);
     }
     setIsSavedQuery(false);
-    props.setIsLoading(false);
-  }, [isSavedQuery, props.savedMovies, filteredSaveMovies]);
+    setIsLoading(false);
+  }, [isSavedQuery, savedMovies, searchSavedMovieText, isSaveFilterCheckboxOn, setIsLoading]);
+  
 
   return (
     <section className='saved-movies' aria-label='Сохраненные фильмы'>
@@ -58,7 +62,7 @@ function SavedMovies(props) {
         checkboxHandler={checkboxHandler}
         checkboxValue={isSaveFilterCheckboxOn}
       />
-      {props.isLoading ? <Preloader /> : null}
+      {isLoading ? <Preloader /> : null}
       <MoviesCardList movies={filteredSaveMovies} />
     </section>
   );

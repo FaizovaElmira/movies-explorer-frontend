@@ -40,6 +40,7 @@
 .user-icon {
   padding: 8px 7.25px;
   border-radius: 50px;
+  background: #313131;
 }
 
 @media screen and (max-width: 768px) {
@@ -51,7 +52,7 @@
     left: 0;
     visibility: hidden;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #202020;
     opacity: 0;
     transition: opacity 0.2s linear;
   }

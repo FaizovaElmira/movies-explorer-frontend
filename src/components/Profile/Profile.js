@@ -17,7 +17,8 @@ function Profile(props) {
 
   useEffect(() => {
     setValues(currentUser);
-  }, [currentUser]);
+  }, [currentUser, setValues]);
+  
 
   function handleSubmit(e) {
     e.preventDefault();

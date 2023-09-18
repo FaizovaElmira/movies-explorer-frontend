@@ -36,7 +36,8 @@ function MoviesCardList({ movies }) {
         location.pathname === '/saved-movies' ? movies.length : 5
       );
     }
-  }, [location.pathname, screenWidth]);
+  }, [location.pathname, screenWidth, movies.length]);
+
 
   const renderMovies = () => {
     return movies
@@ -45,8 +46,13 @@ function MoviesCardList({ movies }) {
   };
 
   const handleShowMoreClick = () => {
-    setVisibleMoviesCount((prevCount) => prevCount + 3);
+    if (screenWidth >= 1280) {
+      setVisibleMoviesCount((prevCount) => prevCount + 3); 
+    } else {
+      setVisibleMoviesCount((prevCount) => prevCount + 2); 
+    }
   };
+  
 
   const shouldRenderShowMoreButton =
     location.pathname === '/movies' && visibleMoviesCount < movies.length;

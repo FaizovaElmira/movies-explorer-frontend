@@ -14,7 +14,7 @@ function Register(props) {
 
   useEffect(() => {
     props.setAuthError('');
-  }, []);
+  }, [props]);
 
   return (
     <section className='register' aria-label='Регистрация на сайте'>
