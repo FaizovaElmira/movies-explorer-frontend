@@ -40,6 +40,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 265px;
+  white-space: nowrap; /* Предотвратить перенос текста на новую строку */
+  overflow: hidden; /* Скрыть часть текста, выходящую за границы контейнера */
+  text-overflow: ellipsis; 
 }
 
 .moviesCard__duration {
