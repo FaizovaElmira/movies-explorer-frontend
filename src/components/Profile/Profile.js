@@ -22,6 +22,14 @@ function Profile(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
+    // Обнулить состояния перед отправкой запроса
+    setSuccessMessage('');
+    setErrorMessage('');
+    
+    // Заблокировать форму перед отправкой запроса
+    setIsNeedDisable(true);
+    
     updateUserInfo({
       name: values.name,
       email: values.email,
@@ -34,11 +42,14 @@ function Profile(props) {
         setSuccessMessage('Сохранено');
       })
       .catch((error) => {
-        setErrorMessage('Неудалось сохранить изменения');
+        setErrorMessage('Не удалось сохранить изменения');
         console.log(`updateUserInfo: ${error}`);
+      })
+      .finally(() => {
+        // Разблокировать форму после получения ответа
+        setIsNeedDisable(false);
+        setIsEditMode(false);
       });
-    setIsEditMode(false);
-    setIsNeedDisable(false);
   }
 
   function handleEditMode() {

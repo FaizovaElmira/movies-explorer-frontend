@@ -1,21 +1,31 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useValidation from '../../hooks/useValidation';
 import AuthForm from '../AuthForm/AuthForm';
 import Input from '../Input/Input';
 
 function Login(props) {
   const { values, errors, handleChange, isValid } = useValidation();
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     const { email, password } = values;
     e.preventDefault();
-    props.handleLogin(email, password);
+    
+    // Обнулить состояния перед отправкой запроса
+    setIsLoading(true);
+    props.setAuthError('');
+
+    props.handleLogin(email, password)
+      .finally(() => {
+        // Разблокировать форму после завершения запроса (успешного или неудачного)
+        setIsLoading(false);
+      });
   }
 
   useEffect(() => {
     props.setAuthError('');
-  }, [props]);
-  
+  }, []);
+
   return (
     <section className='login' aria-label='Вход на сайт'>
       <AuthForm
@@ -50,10 +60,14 @@ function Login(props) {
           errors={errors.password}
           placeholder='Введите пароль'
         />
-        {props.authError ? (
-          <span className='error'>{props.authError}</span>
+        {isLoading ? (
+          <span className='loading'>Идет вход...</span>
         ) : (
-          <></>
+          props.authError ? (
+            <span className='error'>{props.authError}</span>
+          ) : (
+            <></>
+          )
         )}
       </AuthForm>
     </section>
@@ -61,3 +75,5 @@ function Login(props) {
 }
 
 export default Login;
+
+

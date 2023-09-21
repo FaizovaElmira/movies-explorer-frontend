@@ -1,20 +1,30 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useValidation from '../../hooks/useValidation';
 import AuthForm from '../AuthForm/AuthForm';
 import Input from '../Input/Input';
 
 function Register(props) {
   const { values, errors, handleChange, isValid } = useValidation();
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
-    const { name, email, password } = values;
     e.preventDefault();
-    props.handleRegister(name, email, password);
+    const { name, email, password } = values;
+
+    // Обнулить состояния перед отправкой запроса
+    setIsLoading(true);
+    props.setAuthError('');
+
+    props.handleRegister(name, email, password)
+      .finally(() => {
+        // Разблокировать форму после завершения запроса (успешного или неудачного)
+        setIsLoading(false);
+      });
   }
 
   useEffect(() => {
     props.setAuthError('');
-  }, [props]);
+  }, []);
 
   return (
     <section className='register' aria-label='Регистрация на сайте'>
@@ -63,10 +73,14 @@ function Register(props) {
           errors={errors.password}
           placeholder='Введите пароль'
         />
-        {props.authError ? (
-          <span className='error'>{props.authError}</span>
+        {isLoading ? (
+          <span className='loading'>Идет регистрация...</span>
         ) : (
-          <></>
+          props.authError ? (
+            <span className='error'>{props.authError}</span>
+          ) : (
+            <></>
+          )
         )}
       </AuthForm>
     </section>
@@ -74,3 +88,5 @@ function Register(props) {
 }
 
 export default Register;
+
+
