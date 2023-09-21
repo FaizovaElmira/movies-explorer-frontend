@@ -3,6 +3,7 @@
   padding: 0;
   width: 100%;
   background-color: #073042;
+  background-size: cover;
   position: relative;
   display: flex;
 }
@@ -17,7 +18,6 @@
   padding: 0 7px;
   margin: 185px 292px;
   position: absolute;
-  z-index: 1;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;

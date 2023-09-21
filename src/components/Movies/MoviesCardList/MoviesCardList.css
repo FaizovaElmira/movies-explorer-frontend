@@ -9,11 +9,11 @@
 }
 
 .moviesCardList--movies {
-  padding: 70px 70px 80px;
+  padding: 70px 70px 95px;
 }
 
 .moviesCardList--saved-movies {
-  padding-bottom: 247px;
+  padding-bottom: 263px;
 }
 
 .moviesCardList__list {
@@ -68,7 +68,11 @@
   }
 
   .moviesCardList--saved-movies {
-    padding-bottom: 175px;
+    padding-bottom: 190px;
+  }
+
+  .moviesCardList__showMore {
+    margin-bottom: 19px;
   }
 }
 
