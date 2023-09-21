@@ -1,0 +1,121 @@
+.menu {
+  flex-grow: 2;
+}
+
+.list {
+  margin: 0;
+}
+.authNavigation {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.authNavigation__link {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.authNavigation__item {
+  position: relative;
+}
+
+.active {
+  font-weight: 500;
+}
+
+.authNavigation__item_type_profile {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin: 0 0 0 auto;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 12px;
+}
+
+.user-icon {
+  padding: 8px 7.25px;
+  border-radius: 50px;
+  background: #313131;
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s linear;
+  }
+
+  .authNavigation {
+    flex-direction: column;
+    padding: 162px 0 92px;
+    height: 100vh;
+    width: 520px;
+    box-sizing: border-box;
+    background-color: #202020;
+    z-index: 2;
+    gap: 31px;
+    margin-left: auto;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .authNavigation_opened {
+    right: 0;
+    position: fixed;
+  }
+
+  .authNavigation__item_type_profile {
+    margin: auto 0 0 0;
+  }
+
+  .menu_opened {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .authNavigation__link {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 19px;
+  }
+
+  .active:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    margin-top: 4px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .authNavigation {
+    width: 100%;
+    padding: 146px 0 48px;
+    gap: 27px;
+  }
+
+  .authNavigation__link {
+    font-size: 18px;
+  }
+  .menu {
+    background-color: inherit;
+  }
+}

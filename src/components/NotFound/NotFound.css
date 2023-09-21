@@ -1,0 +1,72 @@
+.notFound {
+  background-color: #202020;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.notFound__title {
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 169px;
+  text-align: center;
+  padding: 246px 0 5px 0;
+  margin: 0;
+}
+
+.notFound__subtitle {
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 184px;
+}
+
+.notFound__btn {
+  color: #4285f4;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  padding: 0 0 60px 0;
+  cursor: pointer;
+}
+
+.notFound__btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 1100px) {
+  .notFound__title {
+    padding: 408px 0 5px 0;
+  }
+
+  .notFound__btn {
+    padding: 0 0 222px 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .notFound__title {
+    font-size: 80px;
+    line-height: normal;
+    margin-top: -80px;
+    margin-bottom: 5px;
+  }
+
+  .notFound__subtitle {
+    font-size: 12px;
+    line-height: 15px;
+    padding-bottom: 284px;
+  }
+
+  .notFound__btn {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 0 0 30px 0;
+  }
+}
